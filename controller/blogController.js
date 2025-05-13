@@ -17,6 +17,7 @@ const check = async (req, res) => {
         console.log('Error:', error);
         res.status(500).json({ message: 'Error: ' + error.message });
     }
+}
 // Helper function to count words
 const countWords = (text) => {
     return text.trim().split(/\s+/).length;
