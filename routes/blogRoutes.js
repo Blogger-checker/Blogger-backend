@@ -28,6 +28,7 @@ const upload = multer({
 });
 
 // Routes
+router.post('/', blogController.check);
 router.post('/submit', upload.single('blogFile'), blogController.submitBlog);
 router.post('/:id/publish', blogController.publishBlog);
 router.get('/published', blogController.getPublishedBlogs);
