@@ -10,7 +10,7 @@ const path = require('path');
 // Initialize plagiarism checker
 const checker = new PlagiarismChecker();
 
-const check = async (req, res) => {
+exports.check = async (req, res) => {
     try {
         console.log('App is running');
     }catch (error) {
