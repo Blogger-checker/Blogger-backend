@@ -13,6 +13,10 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    title: {
+        type: String,
+        required: true
+    },
     blogFile: {
         type: String,
         required: true
@@ -21,27 +25,23 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    wordCount: {
+        type: Number,
+        required: true
+    },
     status: {
         type: String,
-        enum: ['pending', 'rejected', 'published'],
+        enum: ['pending', 'published', 'rejected'],
         default: 'pending'
     },
-    rejectionReason: {
-        type: String
-    },
-    wordCount: {
-        type: Number
-    },
+    rejectionReason: String,
     isPlagiarized: {
         type: Boolean,
         default: false
     },
-    publishedAt: {
-        type: Date
-    },
-    publicUrl: {
-        type: String
-    }
+    similarity: Number,
+    publishedAt: Date,
+    publicUrl: String
 }, {
     timestamps: true
 });
