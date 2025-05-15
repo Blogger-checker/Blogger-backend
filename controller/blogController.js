@@ -282,3 +282,21 @@ exports.publishBlog = async (req, res) => {
         });
     }
 };
+
+// Get all blogs (for dashboard)
+exports.getAllBlogs = async (req, res) => {
+    try {
+        const blogs = await Blog.find()
+            .select('title author status createdAt updatedAt')
+            .sort({ createdAt: -1 });
+
+        if (!blogs) {
+            return res.status(404).json({ message: 'No blogs found' });
+        }
+
+        res.status(200).json(blogs);
+    } catch (error) {
+        console.error('Error fetching blogs:', error);
+        res.status(500).json({ message: 'Error fetching blogs', error: error.message });
+    }
+};

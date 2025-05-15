@@ -32,6 +32,7 @@ router.get('/', blogController.check);
 router.post('/submit', upload.single('blogFile'), blogController.submitBlog);
 router.post('/:id/publish', blogController.publishBlog);
 router.get('/published', blogController.getPublishedBlogs);
+router.get('/all', blogController.getAllBlogs);
 router.get('/:id', blogController.getBlogById);
 
 module.exports = router;
